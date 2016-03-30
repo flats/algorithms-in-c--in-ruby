@@ -31,7 +31,7 @@ class Quickfind
 
   def print_db(range)
     @db[range].each_with_index do |val, index|
-      puts "#{index.to_s.ljust(6)} => #{val}"
+      puts "#{index.to_s.ljust(5)} => #{val}"
     end
   end
 end

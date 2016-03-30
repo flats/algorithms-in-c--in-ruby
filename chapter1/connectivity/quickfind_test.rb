@@ -32,4 +32,24 @@ class QuickfindTest < Minitest::Test
     quickfind.connect 1, 2
     assert quickfind.connected?(1, 4)
   end
+
+  def test_that_array_can_be_printed_accurately
+    quickfind.connect 2, 3
+    quickfind.connect 3, 4
+    quickfind.connect 1, 2
+    output = <<-END.gsub(/^ {6}/, '')
+      0     => 0
+      1     => 4
+      2     => 4
+      3     => 4
+      4     => 4
+      5     => 5
+      6     => 6
+      7     => 7
+      8     => 8
+      9     => 9
+      10    => 10
+    END
+    assert_output(output) { quickfind.print_db(0..10) }
+  end
 end

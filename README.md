@@ -1,6 +1,6 @@
-This is an ongoing project to create Ruby versions of the algorithms presented in Robert Sedgewick's *Algorithms in C++* using TDD with minitest. I'm doing this to get accustomed to TDD, expand my Ruby knowledge, and to work my way through this fantastic book.
+This is an ongoing project to translate the algorithms presented in Robert Sedgewick's *Algorithms in C++* into Ruby using TDD with minitest. I'm doing this to get accustomed to TDD, expand my Ruby knowledge, and to work my way through this fantastic book.
 
-My procedure is to translate Sedgewick's algorithms as directly as possible into Ruby classes with tests, and then to make the code clearer and more idiomatic.
+My procedure is to port Sedgewick's algorithms as directly as possible into Ruby as a classes with tests, and then to make the code clearer and more idiomatic wherever possible.
 
 I may include my solutions to exercises in the text, but we'll see how this goes. This is a work in progress.
 

@@ -2,7 +2,7 @@ This is an ongoing project to translate the algorithms presented in Robert Sedge
 
 My procedure is to port Sedgewick's algorithms as directly as possible into Ruby as a classes with tests, and then to make the code clearer and more idiomatic wherever possible.
 
-I may include my solutions to exercises in the text, but we'll see how this goes. This is a work in progress.
+I may include my solutions to exercises from the text wherever appropriate, but we'll see how this goes. This is a work in progress.
 
 ## Installation and Testing
 

@@ -25,4 +25,31 @@ class QuickunionTest < Minitest::Test
     quickunion.connect 2, 3
     assert quickunion.connected?(2, 3)
   end
+
+  def test_that_pair_can_be_distantly_connected
+    quickunion.connect 2, 3
+    quickunion.connect 3, 4
+    quickunion.connect 1, 2
+    assert quickunion.connected?(1, 4)
+  end
+
+  def test_that_array_can_be_printed_accurately
+    quickunion.connect 2, 3
+    quickunion.connect 3, 4
+    quickunion.connect 1, 2
+    output = <<-END.gsub(/^ {6}/, '')
+      0     => 0
+      1     => 4
+      2     => 3
+      3     => 4
+      4     => 4
+      5     => 5
+      6     => 6
+      7     => 7
+      8     => 8
+      9     => 9
+      10    => 10
+    END
+    assert_output(output) { quickunion.print_db(0..10) }
+  end
 end

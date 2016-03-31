@@ -6,11 +6,11 @@ I may include my solutions to exercises from the text wherever appropriate, but 
 
 ## Installation and Testing
 
-Clone this repository and do with it what you will. Run the tests by simply running the test file, e.g. `ruby quickfind_test.rb`.
+Clone this repository and do with it what you will. Run the tests by simply running each test file, e.g. `ruby quickfind_test.rb`.
 
 ## Contributions
 
-I would greatly appreciate any feedback at all! Raise an issue or submit a PR.
+I would greatly appreciate any feedback! Raise an issue or submit a PR.
 
 ## License
 

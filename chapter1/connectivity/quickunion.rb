@@ -18,7 +18,7 @@ class Quickunion
   end
 
   def connect(x, y)
-    return if (@db[x] == @db[y])
+    return if @db[x] == @db[y]
     x_root = find_root(x)
     y_root = find_root(y)
     @db[x_root] = y_root

@@ -1,8 +1,10 @@
 require 'pry'
 require 'pry-nav'
 
+##
+# A simple approach to the connectivity problem - page 12.
 class Quickfind
-  MAX_INPUT = 10000
+  MAX_INPUT = 10_000
 
   def initialize
     @db = []

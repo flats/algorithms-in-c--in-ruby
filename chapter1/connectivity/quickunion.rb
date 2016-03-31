@@ -1,8 +1,10 @@
 require 'pry'
 require 'pry-nav'
 
+##
+# A connectivity algorithm with quick unions and slower finds - page 15.
 class Quickunion
-  MAX_INPUT = 10000
+  MAX_INPUT = 10_000
 
   def initialize
     @db = []
@@ -37,9 +39,7 @@ class Quickunion
   private
 
   def find_root(x)
-    while x != @db[x]
-      x = @db[x]
-    end
+    x = @db[x] while x != @db[x]
     x
   end
 end

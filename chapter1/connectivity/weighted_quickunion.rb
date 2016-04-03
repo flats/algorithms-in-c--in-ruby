@@ -4,6 +4,9 @@ require 'pry-nav'
 ##
 # An improvement to the quick-union algorithm - page 17.
 class Quickunion
+  # not great to expose these variables just for testing, but this class
+  # really only exists to test this algorithm
+  attr_reader :sz, :db
   MAX_INPUT = 10_000
 
   def initialize
@@ -20,9 +23,9 @@ class Quickunion
   end
 
   def connect(x, y)
-    return if @db[x] == @db[y]
     x_root = find_root(x)
     y_root = find_root(y)
+    return if @db[x_root] == @db[y_root]
     if (@sz[x_root] < @sz[y_root])
       @db[x_root] = y_root
       @sz[y_root] += @sz[x_root]

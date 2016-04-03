@@ -36,27 +36,34 @@ class WeightedQuickunionTest < Minitest::Test
     assert quickunion.connected?(1, 4)
   end
 
-  def test_that_pair_can_be_distantly_connected
-    quickunion.connect 1, 2
-    quickunion.connect 2, 3
+  def test_that_sedgewick_input_set_creates_correct_db
     quickunion.connect 3, 4
-    quickunion.connect 4, 5
+    quickunion.connect 4, 9
+    quickunion.connect 8, 0
+    quickunion.connect 2, 3
     quickunion.connect 5, 6
-    quickunion.connect 1, 6
-    quickunion.connect 2, 4
-    
+    quickunion.connect 2, 9
+    quickunion.connect 5, 9
+    quickunion.connect 7, 3
+    quickunion.connect 4, 8
+    quickunion.connect 5, 6
+    quickunion.connect 0, 2
+    quickunion.connect 6, 1
+    quickunion.connect 5, 8
+    assert_equal [8, 3, 3, 3, 3, 3, 5, 3, 3, 3, 10], quickunion.db[0..10]
+    assert_equal [1, 1, 1, 10, 1, 2, 1, 1, 2, 1, 1], quickunion.sz[0..10]
   end
 
-  def test_that_array_can_be_printed_accurately
+  def test_that_db_array_can_be_printed_accurately
     quickunion.connect 2, 3
     quickunion.connect 3, 4
     quickunion.connect 1, 2
     output = <<-END.gsub(/^ {6}/, '')
       0     => 0
-      1     => 4
-      2     => 3
-      3     => 4
-      4     => 4
+      1     => 2
+      2     => 2
+      3     => 2
+      4     => 2
       5     => 5
       6     => 6
       7     => 7
@@ -65,5 +72,25 @@ class WeightedQuickunionTest < Minitest::Test
       10    => 10
     END
     assert_output(output) { quickunion.print_db(0..10) }
+  end
+
+  def test_that_sz_array_can_be_printed_accurately
+    quickunion.connect 2, 3
+    quickunion.connect 3, 4
+    quickunion.connect 1, 2
+    output = <<-END.gsub(/^ {6}/, '')
+      0     : 1
+      1     : 1
+      2     : 4
+      3     : 1
+      4     : 1
+      5     : 1
+      6     : 1
+      7     : 1
+      8     : 1
+      9     : 1
+      10    : 1
+    END
+    assert_output(output) { quickunion.print_sz(0..10) }
   end
 end
